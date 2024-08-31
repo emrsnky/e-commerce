@@ -42,7 +42,7 @@ export default function SidebarContent() {
    {links?.map((link, index) => (
       <div key={index} className="sidebar-item">
         <div className="sidebar-item-title">{link.title}</div>
-        <div className="sidebar-item-sublinks">
+        <div className="sidebar-item-sublinks text-danger">
           {link.sublinks?.map((sublink, index) => (
             <div key={index} className="sidebar-item-sublink">
               {sublink.title}
