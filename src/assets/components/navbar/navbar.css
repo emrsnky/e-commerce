@@ -1,0 +1,128 @@
+.nav-main-container{
+  position: sticky;
+  top: 0;
+  
+  z-index: 100;
+  background: #fff;
+}
+.custom-container{
+  width: 90%;
+  margin: auto;
+}
+
+.catchword {
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.catchword-info {
+  font-size: 0.7rem;
+  font-weight: 400;
+}
+
+.nav-slogan {
+  background-color: #f7f7f7;
+}
+
+.custom-outline-secondary {
+  border: 1px solid #919191;
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+.custom-outline-secondary:focus {
+  background-color: #e9ecef !important;
+  border-color: #919191 !important;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgba(145, 145, 145, 0.6) !important;
+}
+
+.mdn-dropdown:hover {
+  display: block !important;
+}
+
+.mdn-dropdown {
+  width: auto !important;
+  height: auto !important;
+}
+
+
+
+.cart-span {
+  position: relative;
+}
+
+.cart-count {
+  position: absolute;
+  top: -3px;
+  right: 0px;
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.6rem;
+}
+
+/* MOBILE */
+.mobile-input {
+  border: none;
+  border-radius: 25px;
+  background-color: #f3f3f3;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-size: 0.8rem;
+  font-weight: 400;
+  text-indent: 30px;
+}
+
+.mobile-input:focus {
+  outline: 1px solid #919191;
+}
+
+.mobile-search-icon {
+  position: absolute;
+  top: 7px;
+  left: 10px;
+  color: #919191;
+}
+
+.dropdown-item:active{
+  background-color: #f3f3f3;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .catchword {
+    font-size: 0.7rem;
+    font-weight: 700;
+  }
+
+  .catchword-info {
+    font-size: 0.5rem;
+    font-weight: 400;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .cart-count{
+    right: -4px;
+    top: -6px;
+  }
+  }
+
+  
+  /*componenti diger componente cagirirken kullanman gerekenler
+      const [showSidebar, setShowSidebar] = useState(false);
+
+  const handleClose = () => setShowSidebar(false);
+  const handleShow = () => setShowSidebar(true);
+
+    <Button variant="primary" onClick={handleShow}>
+        ☰
+      </Button>
+
+      <Sidebar show={showSidebar} handleClose={handleClose} /> */

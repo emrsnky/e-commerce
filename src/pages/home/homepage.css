@@ -1,0 +1,59 @@
+.hero-top-div {
+    width: 100%;
+    height: 100%; 
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-top-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero-bottom-div {
+    width: 100%;
+    height: 100%; 
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-bottom-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right;
+}
+.hero-bottom-logo {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .hero-top-img {
+        margin-top: 1rem;
+        width: 100%;
+        height: 50vh;
+        object-fit: cover;
+        object-position: center;
+    }
+
+    .hero-bottom-img {
+        width: 100%;
+        height: 35vh;
+        object-fit: cover;
+        object-position: right;
+    }
+
+    .hero-bottom-logo {
+        display: block;
+        width: 200px;
+        height: 60px;
+        position: absolute;
+        bottom: 60px;
+        left: 60%;
+        transform: translateX(-50%);
+        z-index: 1;
+
+    }
+}

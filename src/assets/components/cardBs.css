@@ -1,0 +1,10 @@
+.best-seller-img{
+    width: 150px !important;
+    height: 150px !important;
+    object-fit: cover !important;
+    object-position: center !important;
+    
+}
+.card-bottom{
+    transform: translateY(-2rem);
+}

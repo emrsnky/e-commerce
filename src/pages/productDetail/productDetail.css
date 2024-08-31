@@ -1,0 +1,96 @@
+.custom-button-span {
+  width: 20px;
+  padding: 3px;
+  height: 30px;
+  display: inline-block;
+  margin-left: 5px;
+}
+
+.input-box {
+  border: 1px solid #ced4da;
+  display: inline-flex;
+  width: 120px;
+  align-items: center;
+  border-radius: 0.25rem;
+  overflow-x: hidden;
+}
+
+.input-box input {
+  max-width: 50px;
+  text-align: center;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.input-box button {
+  border: none;
+}
+
+.input-box button:focus,
+.input-box input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.expiry-date {
+  font-size: 0.7rem;
+  font-weight: 500;
+}
+
+.pDetails-custom-accordion .accordion-item:nth-child(1) {
+  border-top: none !important;
+  border-right: none !important;
+  border-bottom: 2px solid #e5e5e5 !important;
+  border-left: none !important;
+}
+
+.pDetails-custom-accordion .accordion-item:nth-child(2) {
+  border-top: none !important;
+  border-right: none !important;
+  border-bottom: 2px solid #e5e5e5 !important;
+  border-left: none !important;
+}
+
+.pDetails-custom-accordion .accordion-item:nth-child(3) {
+  border: none !important;
+}
+
+.pDetails-custom-accordion .accordion-header {
+  border: none !important;
+}
+
+.pDetails-custom-accordion .accordion-body {
+  border: none !important;
+}
+
+.pDetails-custom-accordion .accordion-button {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.pDetails-custom-accordion .accordion-button:focus {
+  box-shadow: none !important;
+}
+
+.pDetails-custom-accordion .accordion-button:not(.collapsed) {
+  box-shadow: none !important;
+  border-bottom: none !important;
+}
+
+.quantity-input:focus {
+  border: 1px solid black !important;
+}
+
+@media screen and (max-width: 991px) {
+  .product-img-container {
+    max-width: 400px;
+    max-height: 400px;
+  }
+}
+
+@media (min-width: 992px) {
+  .flavor-container {
+    width: 80%;
+  }
+}

@@ -1,0 +1,26 @@
+.contact-input-div{
+    width: 100%;
+}
+
+.contact-input{
+    background-color:  #F7F7F7;
+   
+}
+
+.contact-input::placeholder{
+    color: #A1A1AA !important;
+    font-weight: 400;
+}
+
+.contact-input:focus{
+    background-color:  #F7F7F7;
+    border: 0;
+    outline: none;
+    box-shadow: 0 0 0 .25rem rgba(107, 106, 106, 0.226) !important;
+}
+
+@media screen and (max-width: 1024px) {
+    .contact-input-div{
+        width: 100%;
+    }
+}
