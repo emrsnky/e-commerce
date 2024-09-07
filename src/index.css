@@ -1,3 +1,9 @@
 body{
     overflow-x: hidden;
 }
+
+.btn-close:focus {
+    outline: 0;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.5) !important;
+    
+}

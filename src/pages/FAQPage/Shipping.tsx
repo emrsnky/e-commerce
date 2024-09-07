@@ -28,7 +28,7 @@ export default function Shipping() {
    <Accordion>
         {faqItems.map((item, index) => (
           <Accordion.Item eventKey={index.toString()} key={index}>
-            <Accordion.Header className="fw-bold">
+            <Accordion.Header className="custom-accordion-header">
               {item.header}
             </Accordion.Header>
             <Accordion.Body>{item.body}</Accordion.Body>

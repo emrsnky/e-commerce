@@ -4,9 +4,9 @@ import Form from 'react-bootstrap/Form';
 
 function ContactPage() {
   return (
-    <div className="container my-5">
+    <div className="container mt-3 mb-5">
       <div className="row d-flex justify-content-center align-items-center">
-        <h3 className="text-center my-4 display-2 fw-bold">Bize Ulaşın</h3>
+        <h3 className="text-center my-3 display-2 fw-bold">Bize Ulaşın</h3>
         <div className="col-12 col-md-10 col-lg-8 ">
           <Form>
             <p className='pt-4 pb-2'>Bize aşağıdaki iletişim formundan ulaşabilirsiniz.</p>

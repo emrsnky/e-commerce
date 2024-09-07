@@ -1,12 +1,24 @@
 import { useEffect, useState } from "react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+
+interface SubChild {
+  name: string;
+}
+
+interface Child {
+  name: string;
+  sub_children?: SubChild[];
+}
 
 interface Link {
-    title: string;
-    sublinks?: Link[];
-  }
-export default function SidebarContent() {
+  name: string;
+  picture_src?: string;  // picture_src opsiyonel olabilir, çünkü her zaman olmayabilir
+  children?: Child[];
+}
 
-    const [links, setLinks] = useState<Link[]>([]);
+export default function SidebarContent() {
+  const [currentLevel, setCurrentLevel] = useState<Link[] | Child[] | SubChild[]>([]);
+  const [previousLevel, setPreviousLevel] = useState<(Link[] | Child[] | SubChild[])[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -17,40 +29,72 @@ export default function SidebarContent() {
           "https://fe1111.projects.academy.onlyjs.com/api/v1/categories"
         );
         if (!response.ok) {
-          throw new Error('Network response was not ok');
+          throw new Error("Network response was not ok");
         }
         const jsonData = await response.json();
-        console.log(jsonData.data);
-        setLinks(jsonData.data as Link[]);
+        const fetchedLinks = Array.isArray(jsonData.data.data)
+          ? jsonData.data.data
+          : [];
+
+        setCurrentLevel(fetchedLinks as Link[]); // İlk seviyeye doğrudan set ediyoruz
       } catch (error) {
-        setError('Failed to fetch data');
+        setError("Veri alınamadı");
       } finally {
         setLoading(false);
       }
     };
 
     fetchLinks();
-   
   }, []);
-  
 
-  if (loading) return <div>Loading...</div>;
+  const handleNextLevel = (nextLevel: Child[] | SubChild[]) => {
+    setPreviousLevel((prev) => [...prev, currentLevel]);
+    setCurrentLevel(nextLevel);
+  };
+
+  const handleBack = () => {
+    const lastLevel = previousLevel[previousLevel.length - 1];
+    setCurrentLevel(lastLevel);
+    setPreviousLevel((prev) => prev.slice(0, -1));
+  };
+
+  if (loading) return <div>Yükleniyor...</div>;
   if (error) return <div>{error}</div>;
-  
+
   return (
-    <>
-   {links?.map((link, index) => (
-      <div key={index} className="sidebar-item">
-        <div className="sidebar-item-title">{link.title}</div>
-        <div className="sidebar-item-sublinks text-danger">
-          {link.sublinks?.map((sublink, index) => (
-            <div key={index} className="sidebar-item-sublink">
-              {sublink.title}
-            </div>
-          ))}
-        </div>
-      </div>
-    ))}
-    </>
-  )
+    <div>
+      {previousLevel.length > 0 && (
+        <button onClick={handleBack} className="btn btn-secondary rounded-pill mb-2 fw-bold">
+          <FaChevronLeft className="me-1" /> Geri
+        </button>
+      )}
+      <ul>
+        {currentLevel.map((link) => (
+          <li key={link.name} className="d-flex justify-content-between align-items-center">
+            
+            {"picture_src" in link && link.picture_src && (
+              <img
+                src={`https://fe1111.projects.academy.onlyjs.com/${(link as Link).picture_src}`}
+                alt={link.name}
+                className="w-25"
+              />
+            )}
+            <span className="fw-bold mb-2">{link.name}</span>
+            {("children" in link && link.children) || ("sub_children" in link && link.sub_children) ? (
+              <button
+                className="btn btn-link text-dark"
+                onClick={() =>
+                  handleNextLevel(
+                    (link as Link).children || (link as Child).sub_children || []
+                  )
+                }
+              >
+               <FaChevronRight />
+              </button>
+            ) : null}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }

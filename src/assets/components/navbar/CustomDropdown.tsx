@@ -74,7 +74,7 @@ const DropdownContent = styled.div<{ isOpen: boolean }>`
 `;
 
 const BestSellerContainer = styled.div`
-  width: 30%;
+  width: 300px;
   height: 100%;
   background-color: #e5e5e5;
   float: left;
